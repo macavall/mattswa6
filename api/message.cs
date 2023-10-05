@@ -15,7 +15,7 @@ namespace net7iso
         }
 
         [Function("message")]
-        public string Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -26,7 +26,7 @@ namespace net7iso
 
             response.WriteString("Welcome to Azure Functions!");
 
-            return "REQUEST_COMPLETED!!!";
+            return response;
         }
     }
 }
